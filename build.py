@@ -136,6 +136,14 @@ def fb(video_url, height=429):
             f'allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>')
 
 
+def fb_thumb(video_url, image, alt):
+    # Facebook's plugin no longer renders preview thumbnails for some of
+    # the older TaiwaNYC posts, so those episodes show a static thumbnail
+    # (exported to /assets) that links straight to the video on Facebook.
+    return (f'<a class="fb-thumb" href="{video_url}" target="_blank" rel="noopener">'
+            f'<img src="../assets/{quote(image)}" alt="{alt}" loading="lazy"></a>')
+
+
 def asset(filename):
     # Real image filenames (matching the originals) contain spaces, "+"
     # and CJK characters, so they must be percent-encoded in URLs.
@@ -234,28 +242,28 @@ vj_body = "  " + "\n  ".join(yt(v) for v in vj_ids) + "\n"
 taiwanyc_body = f"""  <h2>Season 1</h2>
 
   <div class="episode">
-    <p class="ep-title">EP1: <a href="http://bit.ly/taiwanyc-9m88" target="_blank" rel="noopener">9m88 ─ 歌手、音樂人 Singer Song Writer</a></p>
-    {fb("https://www.facebook.com/Crossing.cw/videos/950250001977527/")}
+    <p class="ep-title">EP1: <a href="https://www.facebook.com/Crossing.cw/videos/950250001977527/" target="_blank" rel="noopener">9m88 ─ 歌手、音樂人 Singer Song Writer</a></p>
+    {fb_thumb("https://www.facebook.com/Crossing.cw/videos/950250001977527/", "taiwanyc-ep1.png", "TaiwaNYC EP1: 9m88 — watch on Facebook")}
   </div>
 
   <div class="episode">
-    <p class="ep-title">EP2: <a href="http://bit.ly/taiwanyc-mitchlin" target="_blank" rel="noopener">林明學 Mitch Lin ─ 配樂作曲家 Film Score Composer</a></p>
-    {fb("https://www.facebook.com/Crossing.cw/videos/704495246736831/")}
+    <p class="ep-title">EP2: <a href="https://www.facebook.com/Crossing.cw/videos/704495246736831/" target="_blank" rel="noopener">林明學 Mitch Lin ─ 配樂作曲家 Film Score Composer</a></p>
+    {fb_thumb("https://www.facebook.com/Crossing.cw/videos/704495246736831/", "taiwanyc-ep2.png", "TaiwaNYC EP2: 林明學 Mitch Lin — watch on Facebook")}
   </div>
 
   <div class="episode">
-    <p class="ep-title">EP3: <a href="http://bit.ly/taiwanyc-mia" target="_blank" rel="noopener">Mia ─ Taiwanese Waves主辦人、經紀人 Taiwanese Waves Founder &amp; Music Agent</a></p>
-    {fb("https://www.facebook.com/Crossing.cw/videos/508582750011452/")}
+    <p class="ep-title">EP3: <a href="https://www.facebook.com/Crossing.cw/videos/508582750011452/" target="_blank" rel="noopener">Mia ─ Taiwanese Waves主辦人、經紀人 Taiwanese Waves Founder &amp; Music Agent</a></p>
+    {fb_thumb("https://www.facebook.com/Crossing.cw/videos/508582750011452/", "taiwanyc-ep3.png", "TaiwaNYC EP3: Mia — watch on Facebook")}
   </div>
 
   <div class="episode">
-    <p class="ep-title">EP4: <a href="http://bit.ly/taiwanyc-seaformosa" target="_blank" rel="noopener">海味鮮台派 Sea Formosa ─ 返鄉投票影像企劃 Voting Video Project</a></p>
-    {fb("https://www.facebook.com/Crossing.cw/videos/2618864651566880/")}
+    <p class="ep-title">EP4: <a href="https://www.facebook.com/Crossing.cw/videos/2618864651566880/" target="_blank" rel="noopener">海味鮮台派 Sea Formosa ─ 返鄉投票影像企劃 Voting Video Project</a></p>
+    {fb_thumb("https://www.facebook.com/Crossing.cw/videos/2618864651566880/", "taiwanyc-ep4.png", "TaiwaNYC EP4: 海味鮮台派 Sea Formosa — watch on Facebook")}
   </div>
 
   <div class="episode">
-    <p class="ep-title">EP5 &amp; 6: <a href="https://www.facebook.com/watch/?v=2539421076306380" target="_blank" rel="noopener">黃再添 Patrick Huang ─ 布魯克林藝站創辦人 Founder of Brooklyn Artists Studio</a></p>
-    {fb("https://www.facebook.com/Crossing.cw/videos/2539421076306380/")}
+    <p class="ep-title">EP5 &amp; 6: <a href="https://www.facebook.com/Crossing.cw/videos/2539421076306380/" target="_blank" rel="noopener">黃再添 Patrick Huang ─ 布魯克林藝站創辦人 Founder of Brooklyn Artists Studio</a></p>
+    {fb_thumb("https://www.facebook.com/Crossing.cw/videos/2539421076306380/", "taiwanyc-ep5.png", "TaiwaNYC EP5: 黃再添 Patrick Huang (上) — watch on Facebook")}
     {fb("https://www.facebook.com/Crossing.cw/videos/2730619417192517/")}
   </div>
 
